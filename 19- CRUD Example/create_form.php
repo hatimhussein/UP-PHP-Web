@@ -1,20 +1,9 @@
 <?php
+
 include_once('includes/appStyle.php');
 include_once('includes/appJS.php');
 include_once('includes/DB_connection.php');
 
-
-			// students: id, name, email, birth_date, nationality
-
-			/*
-				create table students (
-				id int primary key auto_increment,
-				name text,
-				email text,
-				birth_date text,
-				nationality text
-			);
-			*/
 ?>
 
 <!DOCTYPE html>
@@ -22,12 +11,13 @@ include_once('includes/DB_connection.php');
 <head>
 	<title>Create Student</title>
 </head>
+
 <body>
 
 	<div class="container">
 
 		<div class="row">
-			<a href="students_paging.php">View Students</a>
+			<a href="students.php">View Students</a>
 		</div>
 		
 
@@ -39,7 +29,7 @@ include_once('includes/DB_connection.php');
 			$birth_date = $_POST['birth_date'];
 
 			// validation
-
+			// insert into database
 			$query = "INSERT INTO students (name, email, birth_date) VALUES ('$name', '$email', '$birth_date')";
 
 			$result = mysqli_query($connection, $query);
@@ -80,15 +70,3 @@ include_once('includes/DB_connection.php');
 
 </body>
 </html>
-
-<script type="text/javascript">
-	$('#save-btn').click(function (event) {
-		event.preventDefault();
-
-		var result = confirm("Are you sure?");
-
-		if (result == true) {
-			$('#my-form').submit();
-		}
-	});
-</script>

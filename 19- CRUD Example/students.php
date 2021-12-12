@@ -21,6 +21,8 @@ include_once('includes/DB_connection.php');
 							<th>Name</th>
 							<th>Email</th>
 							<th>Birth Date</th>
+							<th>Edit</th>
+							<th>Delete</th>
 						</tr>
 					</thead>
 
@@ -32,7 +34,11 @@ include_once('includes/DB_connection.php');
 
 						if (mysqli_num_rows($result) > 0) {
 							while ($row = mysqli_fetch_assoc($result)) {
-								echo '<tr>' . '<td>' . $row['id'] . '</td>' . '<td>' . $row['name'] . '</td>' . '<td>' . $row['email'] . '</td>' . '<td>' . $row['birth_date'] . '</td>' . 
+								echo '<tr>' . '<td>' . $row['id'] . '</td>' . '<td>' . $row['name'] . '</td>' . '<td>' . $row['email'] . '</td>' . '<td>' . $row['birth_date'] . '</td>' . '<td>' . '<a href="edit_form.php?id=' . $row['id'] . '">Edit</a>' . '</td>' .
+									'<td>' . '<form action="delete_action.php" method="POST">
+										<input type="hidden" name="id" value="' . $row['id'] . '">
+										<button type="submit">Delete</button>
+									</form>' . '</td>' .
 									'</tr>';
 							}
 						}

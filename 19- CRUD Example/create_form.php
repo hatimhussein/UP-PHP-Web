@@ -46,7 +46,7 @@ include_once('includes/DB_connection.php');
 
 		<div class="row">
 			<div class="col-12">
-				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . '?id=564544'; ?>" method="POST" id="my-form" enctype="multipart/form-data">
+				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST" id="my-form" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="name">Name</label>
 						<input type="text" name="name" id="name" class="form-control">
